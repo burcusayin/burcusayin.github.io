@@ -1,203 +1,503 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Burcu Sayin Günel — Applied Research Scientist & AI Engineer</title>
+	<meta name="description" content="Burcu Sayin Günel — Applied Research Scientist and CTO. LLMs, RAG, NLP, and human-AI collaboration. 250+ citations, h-index 9." />
 
-<html>
-	<head>
-		<title>Burcu Sayin</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+	<!-- Open Graph -->
+	<meta property="og:title" content="Burcu Sayin Günel — Applied Research Scientist & AI Engineer" />
+	<meta property="og:description" content="LLMs · RAG · NLP · Human-AI Collaboration. PhD (Trento), CTO, 250+ citations." />
+	<meta property="og:image" content="images/sayin.jpg" />
+	<meta property="og:type" content="website" />
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="container">
-					<li><a href="#top">Bio</a></li>
-					<li><a href="#work">Publications</a></li>
-					<li><a href="#portfolio">Activities</a></li>
-					<li><a href="#awards">Awards</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-		<!-- Home -->
-			<article id="top" class="wrapper style1">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-5-large col-12-medium">
-							<span class="image fit"><img src="images/sayin.jpg" alt="" /></span>
-						</div>
-						<div class="col-8 col-7-large col-12-medium">
-							<header>
-								<h1><strong>Burcu Sayin Günel</strong></h1>
-							</header>
-							<p align="justify"> Hi! I'm a postdoctoral researcher currently affiliated with the <a href="https://sml.disi.unitn.it/">Structured Machine Learning Group</a> at the <a href="https://www.unitn.it/en">University of Trento</a>. I obtained my PhD from the University of Trento, where I conducted research on active learning and hybrid human-machine classifiers. As an experienced AI Researcher, I am currently contributing to the <a href="https://tango-horizon.eu/">TANGO Project</a> funded by the European Union, where we are developing AI-based support systems for decision-makers. I am particularly working on Clinical NLP and hybrid medical decision-making. My research contributions are recognized through publications in top journals and presentations at prestigious conferences worldwide. Beyond research, I co-organize workshops and conferences, promoting collaboration and innovation in AI.
-</p>
-							<a href="#contact" class="button large scrolly">Get in touch with me</a>
-						</div>
+	<style>
+		:root {
+			--bg:        #0b0f17;
+			--bg-2:      #0f141e;
+			--surface:   #121824;
+			--surface-2: #161d2b;
+			--border:    #222b3a;
+			--text:      #e9eef6;
+			--muted:     #a3b1c6;
+			--faint:     #6f7d92;
+			--accent:    #7dd3c0;
+			--accent-2:  #93b7ee;
+			--accent-soft: rgba(125, 211, 192, 0.10);
+			--radius:    14px;
+			--maxw:      960px;
+			--shadow:    0 14px 50px rgba(0,0,0,0.4);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+		body {
+			margin: 0;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			background: var(--bg);
+			color: var(--text);
+			line-height: 1.65;
+			-webkit-font-smoothing: antialiased;
+			overflow-x: hidden;
+		}
+		/* Ambient gradient glow */
+		body::before {
+			content: "";
+			position: fixed;
+			top: -25%; left: 50%;
+			transform: translateX(-50%);
+			width: 1200px; height: 700px;
+			background: radial-gradient(closest-side, rgba(125,211,192,0.06), transparent 70%),
+			            radial-gradient(closest-side, rgba(147,183,238,0.05), transparent 70%);
+			background-position: 30% 0, 70% 10%;
+			background-repeat: no-repeat;
+			background-size: 60% 100%, 60% 100%;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		a { color: var(--accent); text-decoration: none; transition: color .2s; }
+		a:hover { color: var(--accent-2); }
+		h1, h2, h3, h4 { line-height: 1.2; margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+
+		.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+		/* ── Nav ── */
+		nav {
+			position: sticky; top: 0; z-index: 100;
+			backdrop-filter: blur(12px);
+			background: rgba(10,14,22,0.72);
+			border-bottom: 1px solid transparent;
+			transition: border-color .3s, background .3s;
+		}
+		nav.scrolled { border-bottom-color: var(--border); background: rgba(10,14,22,0.9); }
+		nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+		.brand { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; }
+		.brand span { color: var(--accent); }
+		nav ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+		nav ul a {
+			color: var(--muted); font-size: 0.9rem; font-weight: 500;
+			padding: 8px 14px; border-radius: 8px; transition: all .2s;
+		}
+		nav ul a:hover { color: var(--text); background: var(--surface); }
+		.nav-toggle { display: none; background: none; border: 0; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+		/* ── Hero ── */
+		.hero { padding: 96px 0 72px; }
+		.hero-grid { display: grid; grid-template-columns: 230px 1fr; gap: 56px; align-items: start; }
+		.avatar-wrap { position: relative; }
+		.avatar {
+			width: 230px; height: 268px; border-radius: 16px; object-fit: cover; display: block;
+			border: 1px solid var(--border);
+			box-shadow: var(--shadow);
+		}
+		.avatar-cap {
+			font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+			color: var(--faint); text-align: center; margin-top: 10px; letter-spacing: 0.02em;
+		}
+		.eyebrow {
+			font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+			color: var(--accent); letter-spacing: 0.05em; margin-bottom: 16px;
+		}
+		.hero h1 { font-size: 2.7rem; font-weight: 700; margin-bottom: 12px; }
+		.role { font-size: 1.18rem; color: var(--muted); font-weight: 400; margin-bottom: 20px; }
+		.role b { color: var(--text); font-weight: 600; }
+		.lead { color: var(--muted); font-size: 1.02rem; max-width: 640px; margin-bottom: 22px; line-height: 1.75; }
+
+		/* research-focus statement (al-folio inspired) */
+		.focus {
+			border-left: 2px solid var(--accent);
+			background: var(--accent-soft);
+			padding: 16px 22px; border-radius: 0 10px 10px 0;
+			font-style: italic; color: var(--text); font-size: 1.04rem; line-height: 1.7;
+			max-width: 760px; margin: 8px 0 28px;
+		}
+
+		.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+		.tag {
+			font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;
+			background: var(--accent-soft); color: var(--accent);
+			border: 1px solid rgba(52,216,196,0.25);
+			padding: 5px 11px; border-radius: 999px;
+		}
+
+		.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+		.btn {
+			display: inline-flex; align-items: center; gap: 9px;
+			padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 0.92rem;
+			border: 1px solid var(--border); transition: all .2s;
+		}
+		.btn svg { width: 17px; height: 17px; }
+		.btn-primary { background: var(--accent); color: #06231e; border-color: var(--accent); }
+		.btn-primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: #051329; transform: translateY(-2px); }
+		.btn-ghost { background: var(--surface); color: var(--text); }
+		.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
+
+		/* ── Metrics strip ── */
+		.metrics {
+			display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 44px;
+			border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+		}
+		.metric { padding: 20px 18px 18px; text-align: center; border-left: 1px solid var(--border); }
+		.metric:first-child { border-left: 0; }
+		.metric .num { font-size: 1.7rem; font-weight: 700; color: var(--text); letter-spacing: -0.03em; }
+		.metric .num span { color: var(--accent); }
+		.metric .label { font-size: 0.78rem; color: var(--faint); margin-top: 4px; letter-spacing: 0.02em; }
+
+		/* ── Sections ── */
+		section { padding: 76px 0; }
+		.section-head { margin-bottom: 44px; }
+		.section-head .kicker {
+			font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;
+			color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
+		}
+		.section-head h2 { font-size: 1.75rem; font-weight: 700; margin-top: 10px; }
+		.section-head p { color: var(--muted); margin-top: 12px; max-width: 640px; line-height: 1.7; }
+
+		/* ── Experience timeline ── */
+		.timeline { display: flex; flex-direction: column; gap: 4px; }
+		.xp {
+			display: grid; grid-template-columns: 180px 1fr; gap: 28px;
+			padding: 26px 0; border-top: 1px solid var(--border);
+		}
+		.xp:first-child { border-top: 0; }
+		.xp .period { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--faint); padding-top: 4px; }
+		.xp .now { color: var(--accent); }
+		.xp h3 { font-size: 1.18rem; }
+		.xp .org { color: var(--accent-2); font-weight: 600; font-size: 0.95rem; margin: 4px 0 12px; }
+		.xp ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.95rem; }
+		.xp ul li { margin-bottom: 6px; }
+		.xp ul li::marker { color: var(--accent); }
+
+		/* ── Research cards ── */
+		.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+		.card {
+			background: var(--surface); border: 1px solid var(--border);
+			border-radius: var(--radius); padding: 24px; transition: all .25s;
+			display: flex; flex-direction: column;
+		}
+		.card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+		.card .meta { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+		.card .venue {
+			font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+			color: var(--accent); background: var(--accent-soft); padding: 3px 9px; border-radius: 6px;
+		}
+		.card .cites { font-size: 0.76rem; color: var(--faint); }
+		.card h3 { font-size: 1.05rem; line-height: 1.35; margin-bottom: 10px; }
+		.card h3 a { color: var(--text); }
+		.card h3 a:hover { color: var(--accent); }
+		.card p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+		.research-foot { margin-top: 28px; text-align: center; color: var(--muted); }
+
+		/* ── Awards ── */
+		.awards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+		.award {
+			background: linear-gradient(160deg, var(--surface), var(--bg-2));
+			border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;
+		}
+		.award .trophy { font-size: 1.5rem; }
+		.award h3 { font-size: 1.05rem; margin: 12px 0 6px; }
+		.award .where { font-size: 0.82rem; color: var(--faint); margin-bottom: 10px; }
+		.award p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+
+		/* ── Contact ── */
+		.contact { text-align: center; }
+		.contact .section-head { margin-bottom: 24px; }
+		.email-link { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+		.social { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
+		.social a {
+			width: 46px; height: 46px; border-radius: 12px;
+			display: flex; align-items: center; justify-content: center;
+			background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+			transition: all .2s;
+		}
+		.social a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-3px); }
+		.social svg { width: 20px; height: 20px; }
+
+		footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--faint); font-size: 0.82rem; }
+
+		/* ── Responsive ── */
+		@media (max-width: 860px) {
+			.hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; justify-items: center; }
+			.lead { margin-left: auto; margin-right: auto; }
+			.tags, .cta-row { justify-content: center; }
+			.metrics { grid-template-columns: repeat(2, 1fr); }
+			.cards, .awards { grid-template-columns: 1fr; }
+			.xp { grid-template-columns: 1fr; gap: 8px; }
+			.hero h1 { font-size: 2.2rem; }
+			nav ul { display: none; position: absolute; top: 64px; left: 0; right: 0;
+				flex-direction: column; background: var(--bg-2); border-bottom: 1px solid var(--border); padding: 10px; }
+			nav ul.open { display: flex; }
+			nav ul a { padding: 12px 14px; }
+			.nav-toggle { display: block; }
+		}
+	</style>
+</head>
+<body>
+
+	<!-- ── Nav ── -->
+	<nav id="nav">
+		<div class="wrap">
+			<div class="brand">Burcu<span>.</span>Sayin</div>
+			<button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">≡</button>
+			<ul id="menu">
+				<li><a href="#about">About</a></li>
+				<li><a href="#experience">Experience</a></li>
+				<li><a href="#research">Research</a></li>
+				<li><a href="#awards">Awards</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- ── Hero ── -->
+	<header class="hero">
+		<div class="wrap">
+			<div class="hero-grid">
+				<div class="avatar-wrap">
+					<img class="avatar" src="images/sayin.jpg" alt="Burcu Sayin Günel" />
+					<div class="avatar-cap">Trento, Italy</div>
+				</div>
+				<div>
+					<div class="eyebrow">applied AI · research × industry</div>
+					<h1>Burcu Sayin Günel</h1>
+					<p class="role"><b>Applied Research Scientist</b> &nbsp;·&nbsp; <b>CTO</b>, Stealth AI Startup</p>
+					<p class="lead">
+						I build trustworthy AI systems — turning research on LLMs, conversational AI, and human-AI
+						collaboration into products that ship. PhD from the University of Trento, 30+ peer-reviewed
+						publications, and a growing focus on bringing AI research into real-world applications.
+					</p>
+					<div class="tags">
+						<span class="tag">LLMs</span>
+						<span class="tag">NLP</span>
+						<span class="tag">Human-AI Collaboration</span>
+						<span class="tag">Trustworthy AI</span>
+						<span class="tag">Python · PyTorch</span>
+					</div>
+					<div class="cta-row">
+						<a class="btn btn-primary" href="assets/Burcu_Sayin_Gunel_CV.pdf">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+							Download CV
+						</a>
+						<a class="btn btn-ghost" href="#contact">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg>
+							Get in touch
+						</a>
+						<a class="btn btn-ghost" href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">
+							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.6z"/></svg>
+							Google Scholar
+						</a>
+					</div>
+
+					<div class="metrics">
+						<div class="metric"><div class="num">250<span>+</span></div><div class="label">Citations</div></div>
+						<div class="metric"><div class="num">9</div><div class="label">h-index</div></div>
+						<div class="metric"><div class="num">30<span>+</span></div><div class="label">Publications</div></div>
+						<div class="metric"><div class="num">3<span>×</span></div><div class="label">Best-Paper Awards</div></div>
 					</div>
 				</div>
-			</article>
+			</div>
+		</div>
+	</header>
 
-		<!-- Work -->
-			<article id="work" class="wrapper style2">
-				<div class="container">
-					<header>
-						<h2>Here's some of my recent publications.</h2>
-					</header>
-					<div class="row aln-center">
+	<!-- ── About ── -->
+	<section id="about">
+		<div class="wrap">
+			<div class="section-head">
+				<div class="kicker">About</div>
+				<h2>Research depth, shipped at industry pace</h2>
+			</div>
+			<p class="focus">
+				I work at the intersection of large language models and human decision-making — building
+				AI systems reliable enough to trust, and understanding precisely when they shouldn't be.
+			</p>
+			<p class="lead" style="max-width: 860px; font-size: 1.05rem;">
+				I'm an applied research scientist working at the intersection of large language models and
+				human decision-making. After completing my PhD <em>cum laude</em> at the University of Trento
+				and a PostDoc with the <a href="https://sml.disi.unitn.it/index.html" target="_blank" rel="noopener">Structured Machine Learning Group</a>, I now lead AI strategy and engineering
+				as CTO of a stealth-stage startup — designing LLM-powered systems that are reliable
+				enough to put in front of real users. My work spans hybrid human-machine collaboration,
+				NLP, and the science of when (and when not) to trust a model.
+			</p>
+		</div>
+	</section>
 
-						<div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="image featured"><img src="images/perspective.png"></span>
-								<h4 align="justify"><a href="https://dl.acm.org/doi/pdf/10.1145/3581641.3584096">Perspective: Leveraging Human Understanding for Identifying and Characterizing Image Atypicality</a></h3>
-								<p align="justify">We provide a model-agnostic characterization of image atypicality based on human understanding. We introduce an annotation tool that increases annotation accuracy and speed by presenting several distinct sets of auxiliary images, and that increases cost-efficiency by carefully designed sampling techniques.</p>
-							</section>
-						</div>
-						<!--div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="image featured"><img src="images/picVal.jpg"></span>
-								<h3><a href="https://arxiv.org/abs/2209.15157">Rethinking and Recomputing the Value of ML Models</a></h3>
-								<p>We argue that the way we have been evaluating ML models has forgotten the fact that they provide value to people. We show that with this perspective we fundamentally change how we evaluate, select and deploy ML models.</p>
-							</section>
-						</div-->
-						<div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="image featured"><img src="images/picSR.jpg"></span>
-								<h4 align="justify"><a href="https://arxiv.org/abs/2111.06736">The Science of Rejection: A Research Area for Human Computation</a></h3>
-								<p align="justify">We motivate why the science of learning to reject model predictions is central to ML, and what is the role of humans.</p>
-							</section>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="image featured"><img src="images/picHC.jpg"></span>
-								<h4><a href="https://ieeexplore.ieee.org/abstract/document/9590410">Crowd-Powered Hybrid Classification Services: Calibration is all you need</a></h3>
-								<p align="justify"> We take the first steps toward a science for hybrid classification services, discussing key concepts, challenges, and architectures, and then focusing on a central aspect, that of ML calibration and how it can be achieved with crowdsourced labels.</p>
-							</section>
-						</div>
-					</div>
-					<footer>
-						<p>Are you interested in a full list of my publications? Please see my <a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en">Google Scholar page</a>.</p>
-						
-					</footer>
-				</div>
-			</article>
-
-		<!-- Portfolio -->
-			<article id="portfolio" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>Here’s my recent activities.</h2>
-					</header>
-					<div class="row">
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-								<h3><a href="#">F+Cube Week 2022</a></h3>
-								<p>I was invited to the F+Cube Week 2022 on November 15-23, 2022 at TU Delft. It was a pleasure to present my research and attend trainings from inspirational teaching to personal development.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-								<h3><a href="#">New job alert</a></h3>
-								<p>As of November 2022, I started a new position as Postdoctoral Researcher at Università di Trento! I will be working on cooperative human-machine intelligence.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-								<h3><a href="#">PhD graduation</a></h3>
-								<p>On 26 September 2022, I became a Doctor (Cum laude) in Information and Communication Technology at Università di Trento with my PhD thesis titled “Towards reliable hybrid human-machine classifiers”.</p>
-							</article>
-						</div>
-					</div>
-					<footer>
-						
-					</footer>
-				</div>
-			</article>
-
-
-<!-- Awards -->
-			<article id="awards" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>My awards</h2>
-					</header>
-					<div class="row">
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-								<h3><a href="#">Blue Sky Best Paper Award</a></h3>
-								<p>Our paper "The Science of Rejection: A Research Area for Human Computation” received the Blue Sky Best Paper Award at the 9th AAAI Conference on Human Computation and Crowdsourcing (HCOMP), Nov. 2021.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-								<h3><a href="#">Methods Recognition</a></h3>
-								<p>Our paper "On the state of reporting in crowdsourcing experiments and a checklist to aid current practices” received the Methods Recognition award from ACM Computer-Supported Cooperative Work & Social Computing (CSCW 2021), in Oct. 2021.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-								<h3><a href="#">Best Paper Award</a></h3>
-								<p>Our paper "A Novel Approach to Information Spreading Models for Social Networks” received the Best Paper award at The Sixth International Conference on Data Analytics (Data Analytics 2017), in Nov. 2017.</p>
-							</article>
-						</div>
-					</div>
-					<footer>
-						
-					</footer>
-				</div>
-			</article>
-
-		<!-- Contact -->
-			<article id="contact" class="wrapper style4">
-				<div class="container medium">
-					<header>
-						<h2>Contact me: burcusayin.w@gmail.com</h2>
-					</header>
-					<div class="row">
-						<div class="col-12">
-							<hr />
-							<h3>Find me on ...</h3>
-							<ul class="social">
-								<li><a href="https://twitter.com/sayinburcu?lang=en" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.linkedin.com/in/burcu-sayin-81424b61/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://github.com/burcusayin" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<!--
-								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
-								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
-								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
-								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
-								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
-								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
-								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
-								-->
-							</ul>
-							<hr />
-						</div>
-					</div>
-					<footer>
-						<ul id="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+	<!-- ── Experience ── -->
+	<section id="experience">
+		<div class="wrap">
+			<div class="section-head">
+				<div class="kicker">Experience</div>
+				<h2>Where I've worked</h2>
+			</div>
+			<div class="timeline">
+				<div class="xp">
+					<div class="period">Mar 2026 — <span class="now">Present</span></div>
+					<div>
+						<h3>Chief Technology Officer</h3>
+						<div class="org">Stealth AI Startup</div>
+						<ul>
+							<li>Lead AI/ML strategy, architecture, and engineering for an early-stage startup company.</li>
+							<li>Design and ship LLM-based systems — from retrieval pipelines and evaluation to deployment.</li>
+							<li>Translate frontier research on trustworthy and human-aligned AI into production-grade features.</li>
 						</ul>
-					</footer>
+					</div>
 				</div>
-			</article>
+				<div class="xp">
+					<div class="period">Nov 2022 — Feb 2026</div>
+					<div>
+						<h3>Postdoctoral Researcher</h3>
+						<div class="org">Structured Machine Learning Group · University of Trento</div>
+						<ul>
+							<li>Researched hybrid human-LLM reasoning and decision-making within the EU Horizon <a href="https://tango-horizon.eu/" target="_blank" rel="noopener">TANGO Project</a>.</li>
+							<li>Built reliable retrieval (RAG) methods for large legal and medical corpora, and clinical NLP systems.</li>
+							<li>Studied LLM trustworthiness — consistency across languages, model correction, and learning to reject.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="xp">
+					<div class="period">2018 — Sep 2022</div>
+					<div>
+						<h3>Ph.D. in Information &amp; Communication Technology <em>(cum laude)</em></h3>
+						<div class="org">University of Trento</div>
+						<ul>
+							<li>Thesis: <em>“Towards Reliable Hybrid Human-Machine Classifiers.”</em></li>
+							<li>Active learning over crowdsourced data, ML calibration, and the science of rejection.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- ── Research ── -->
+	<section id="research">
+		<div class="wrap">
+			<div class="section-head">
+				<div class="kicker">Research</div>
+				<h2>Selected publications</h2>
+			</div>
+			<div class="cards">
 
-	</body>
+				<div class="card">
+					<div class="meta"><span class="venue">2025</span><span class="cites">35 citations</span></div>
+					<h3><a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">Fostering Effective Hybrid Human-LLM Reasoning and Decision Making</a></h3>
+					<p>How to combine human judgment with LLM reasoning so the team outperforms either alone — interaction patterns for reliable hybrid decisions.</p>
+				</div>
+
+				<div class="card">
+					<div class="meta"><span class="venue">2025</span><span class="cites">11 citations</span></div>
+					<h3><a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">Towards Reliable Retrieval in RAG Systems for Large Legal Datasets</a></h3>
+					<p>Diagnosing and improving retrieval quality when RAG systems operate over massive, specialized legal corpora.</p>
+				</div>
+
+				<div class="card">
+					<div class="meta"><span class="venue">2024</span><span class="cites">18 citations</span></div>
+					<h3><a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">Can LLMs Correct Physicians, Yet? Investigating Effective Interaction Methods in the Medical Domain</a></h3>
+					<p>When and how LLMs can usefully challenge expert decisions — designing safe human-AI interaction for high-stakes medicine.</p>
+				</div>
+
+				<div class="card">
+					<div class="meta"><span class="venue">2025</span><span class="cites">14 citations</span></div>
+					<h3><a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">Do LLMs Provide Consistent Answers to Health-Related Questions Across Languages?</a></h3>
+					<p>Auditing multilingual consistency in LLM health answers — a trustworthiness lens on cross-language reliability.</p>
+				</div>
+
+				<div class="card">
+					<div class="meta"><span class="venue">2024</span><span class="cites">10 citations</span></div>
+					<h3><a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">Learning to Guide Human Decision Makers with Vision-Language Models</a></h3>
+					<p>Using VLMs to guide rather than replace human decisions, improving accuracy while keeping humans in control.</p>
+				</div>
+
+				<div class="card">
+					<div class="meta"><span class="venue">HCOMP · Best Paper</span><span class="cites">12 citations</span></div>
+					<h3><a href="https://arxiv.org/abs/2111.06736" target="_blank" rel="noopener">The Science of Rejection: A Research Area for Human Computation</a></h3>
+					<p>Why learning to reject model predictions is central to ML — and what role humans play. Blue Sky Best Paper, AAAI HCOMP 2021.</p>
+				</div>
+
+			</div>
+			<div class="research-foot">
+				Looking for the full list? See my <a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar profile</a>.
+			</div>
+		</div>
+	</section>
+
+	<!-- ── Awards ── -->
+	<section id="awards">
+		<div class="wrap">
+			<div class="section-head">
+				<div class="kicker">Recognition</div>
+				<h2>Awards</h2>
+			</div>
+			<div class="awards">
+				<div class="award">
+					<div class="trophy">🏆</div>
+					<h3>Blue Sky Best Paper Award</h3>
+					<div class="where">AAAI HCOMP 2021</div>
+					<p>For “The Science of Rejection: A Research Area for Human Computation,” at the 9th AAAI Conference on Human Computation and Crowdsourcing.</p>
+				</div>
+				<div class="award">
+					<div class="trophy">🎖️</div>
+					<h3>Methods Recognition</h3>
+					<div class="where">ACM CSCW 2021</div>
+					<p>For “On the State of Reporting in Crowdsourcing Experiments and a Checklist to Aid Current Practices.”</p>
+				</div>
+				<div class="award">
+					<div class="trophy">🥇</div>
+					<h3>Best Paper Award</h3>
+					<div class="where">Data Analytics 2017</div>
+					<p>For “A Novel Approach to Information Spreading Models for Social Networks,” at the 6th International Conference on Data Analytics.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ── Contact ── -->
+	<section id="contact" class="contact">
+		<div class="wrap">
+			<div class="section-head" style="text-align:center;">
+				<div class="kicker">Contact</div>
+				<h2>Let's build something together</h2>
+				<p style="margin-left:auto;margin-right:auto;">Open to conversations about applied AI, research collaborations, and advisory roles.</p>
+			</div>
+			<a class="email-link" href="mailto:burcusayin.w@gmail.com">burcusayin.w@gmail.com</a>
+			<div class="social">
+				<a href="https://www.linkedin.com/in/burcu-sayin-81424b61/" target="_blank" rel="noopener" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V9.92H5.67v8.42h2.67zM7 8.77a1.55 1.55 0 100-3.1 1.55 1.55 0 000 3.1zm11.34 9.57v-4.6c0-2.46-1.31-3.6-3.06-3.6-1.41 0-2.04.78-2.39 1.32v-1.14h-2.67v8.42h2.67v-4.7c0-.25.02-.5.09-.67.2-.5.65-1.01 1.41-1.01.99 0 1.39.75 1.39 1.86v4.52h2.56z"/></svg>
+				</a>
+				<a href="https://scholar.google.com/citations?user=wNT8CJQAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+					<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.6z"/></svg>
+				</a>
+				<a href="https://github.com/burcusayin" target="_blank" rel="noopener" aria-label="GitHub">
+					<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+				</a>
+				<a href="https://twitter.com/sayinburcu" target="_blank" rel="noopener" aria-label="X / Twitter">
+					<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.4 8.5L23.3 22h-6.8l-5.3-7-6.1 7H2l7.9-9-8-9h6.9l4.8 6.4L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="wrap">
+			© <span id="year">2026</span> Burcu Sayin Günel · Applied Research Scientist &amp; AI Engineer
+		</div>
+	</footer>
+
+	<script>
+		// Sticky nav border on scroll
+		const nav = document.getElementById('nav');
+		const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+		window.addEventListener('scroll', onScroll); onScroll();
+
+		// Close mobile menu on link click
+		document.querySelectorAll('#menu a').forEach(a =>
+			a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+	</script>
+
+</body>
 </html>
